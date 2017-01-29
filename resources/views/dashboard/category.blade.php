@@ -9,7 +9,7 @@
   <div class="dashboards-subsection-top">
     <h2 class="dashboard-header">{{ $category->name }}</h2>
     <div class="dashboard-subsection-buttons-block">
-      <a class="dashboard-button flex-left w-button" href="{{ route('new-question-form') }}">New Question</a>
+      <a class="dashboard-button flex-left w-button" href="{{ route('new-question-form-category', ['category' => $category->id]) }}">New Question</a>
     </div>
   </div>
 </div>

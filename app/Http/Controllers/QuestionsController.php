@@ -33,6 +33,29 @@ class QuestionsController extends Controller
     }
 
     /**
+     * Show the form in Dashboard for creating a new question
+     * Auto-select the category where the button 'New Question' was added
+     *
+     * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function createUnderCategory(Category $category)
+    {
+        if (Session::has('backUrl')) {
+            Session::keep('backUrl');
+        }
+
+        if(old('category')) {
+            $selectedCategoryId = old('category');
+        } else {
+            $selectedCategoryId = $category->id;
+        }
+
+        $categories = Category::get()->all();
+        return view('dashboard.new-question', compact('selectedCategoryId', 'categories'));
+    }
+
+    /**
      * Receives an admin's request to create a new question in the database
      *
      * @param \Illuminate\Http\Request  $request

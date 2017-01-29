@@ -45,6 +45,7 @@ Route::delete('/destroy/category/{category}', 'CategoriesController@destroy')->n
 // - Questions
 // - - Create a new question in dashboard
 Route::get('/dashboard/new-question', 'QuestionsController@create')->name('new-question-form');
+Route::get('/dashboard/new-question/{category}', 'QuestionsController@createUnderCategory')->name('new-question-form-category');
 Route::post('/dashboard/new-question', 'QuestionsController@storeByAdmin')->name('create-question');
 // - - Edit a question
 Route::get('/question/{question}/edit', 'QuestionsController@edit')->name('edit-question-form');
