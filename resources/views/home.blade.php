@@ -9,15 +9,7 @@
   {{--Search Field--}}
   <div class="main-section">
     <div class="top-container w-container">
-      <div class="search-form-wrapper w-form">
-        <form class="search-form" data-name="Search Form" id="search-form" name="search-form">
-          <div class="search-form-div">
-            <input class="search-field w-input" id="search-field" maxlength="50" name="search-field" placeholder="What can we help you with?" required="required" type="text">
-            <input class="search-button w-button" data-wait="In Process..." type="submit" value="Search">
-            {{ csrf_field() }}
-          </div>
-        </form>
-      </div>
+      <h2 class="top-header">Questions & Answers</h2>
     </div>
 
     <div class="w-container">

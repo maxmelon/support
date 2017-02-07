@@ -27,26 +27,10 @@
                     <div class="profile-pic">
                         <div class="profile-pic-default"></div>
                     </div>
-
-                    {{--Here should have been a dropdown menu where admin accounts could be easily switched from one to another.
-                     But it's not functional yet. I'm still working on it.--}}
                     <div class="w-dropdown" data-delay="0">
-                        <div class="select-admin w-dropdown-toggle">
+                        <div class="select-admin">
                             <div>{{ Auth::user()->name }}</div>
-                            <div class="w-icon-dropdown-toggle"></div>
                         </div>
-                        {{--<nav class="w-dropdown-list">--}}
-                            {{--@php--}}
-                                {{--$usernames = App\User::pluck('name');--}}
-                                {{--$filtered = $usernames->filter(function ($value, $key) {--}}
-                                    {{--return $value != 'admin';--}}
-                                {{--});--}}
-                                {{--$usernamesExceptAuthorized = $filtered->all();--}}
-                            {{--@endphp--}}
-                            {{--@foreach($usernamesExceptAuthorized as $username)--}}
-                                {{--<a class="select-admin-link w-dropdown-link" href="#">{{ $username }}</a>--}}
-                            {{--@endforeach--}}
-                        {{--</nav>--}}
                     </div>
                 </div>
                 <div>
@@ -63,7 +47,7 @@
                         <div class="icon icon-nav"></div>
                         <div class="nav-row-link-label">Accounts</div>
                     </a>
-                    <a class="nav-row-link w-inline-block" href="#">
+                    <a class="nav-row-link w-inline-block" href="{{ route('show-logs') }}">
                         <div class="icon icon-nav"></div>
                         <div class="nav-row-link-label">Logs</div>
                     </a>

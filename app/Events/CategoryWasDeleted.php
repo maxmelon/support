@@ -19,7 +19,7 @@ class CategoryWasDeleted
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param $category
      */
     public function __construct($category)
     {

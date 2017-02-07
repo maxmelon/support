@@ -67,6 +67,10 @@ Route::patch('/dashboard/user/{user}/update', 'UsersController@update')->name('u
 Route::get('/dashboard/user/{user}/delete', 'UsersController@delete')->name('delete-account-form');
 Route::delete('/destroy/user/{user}', 'UsersController@destroy')->name('destroy-account');
 
+// - Logs
+// - - Show Logs
+Route::get('/dashboard/logs', 'LogsController@show')->name('show-logs');
+
 
 
 

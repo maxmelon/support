@@ -17,7 +17,7 @@
             {{ csrf_field() }}
             <select class="dashboard-form-field w-select" id="category" name="category">
               @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ ($selectedCategoryId == $category->id ? "selected" : "") }}>{{ $category->name }}</option>
+                <option value="{{ $category->id }}" @if(isset($selectedCategoryId)) {{ $selectedCategoryId == $category->id ? "selected" : ""  }} @endif>{{ $category->name }}</option>
               @endforeach
             </select>
             <select class="dashboard-form-field w-select" id="status" name="status">

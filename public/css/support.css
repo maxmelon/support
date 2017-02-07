@@ -419,6 +419,8 @@ body {
 .select-admin {
   color: #fff;
   font-size: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .select-admin-link {
@@ -819,6 +821,11 @@ a.no-style-link-block {
   background-color: #fafafa;
 }
 
+.top-header {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
 html.w-mod-js *[data-ix="no-show-on-load"] {
   opacity: 0;
 }
@@ -861,6 +868,7 @@ html.w-mod-js *[data-ix="no-show-on-load"] {
     -ms-flex-align: center;
     align-items: center;
   }
+
 }
 
 @media (max-width: 767px) {

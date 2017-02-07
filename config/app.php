@@ -182,6 +182,11 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        /*
+         * Logs - Activity-Log by Spatie
+         */
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
+
     ],
 
     /*

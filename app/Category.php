@@ -4,16 +4,28 @@ namespace App;
 
 use App\Events\CategoryWasDeleted;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Category extends Model
 {
+    use LogsActivity;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+    ];
+
+    /**
+     * The attributes that get logged.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
+        'name',
     ];
 
     /**
