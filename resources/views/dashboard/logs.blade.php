@@ -11,7 +11,7 @@
         <div class="dashboards-subsection-top">
             <h2 class="dashboard-header">Last Activities (max. 20)</h2>
             <div class="dashboard-subsection-buttons-block">
-                <a class="dashboard-button flex-left w-button" href="#">Full Logs</a>
+                <a class="dashboard-button flex-left w-button" href="{{ route('export-full-logs') }}">Full Logs</a>
             </div>
 
         </div>
@@ -31,10 +31,6 @@
         </div>
 
         @foreach($activities as $activity)
-            @php
-            $pathExploded = explode('\\', $activity->subject_type);
-            $subject = end($pathExploded);
-            @endphp
                 <div class="list-item">
                     <div class="list-item-row">
                         <div class="list-item-colomn w-col w-col-2">
@@ -45,17 +41,17 @@
                         </div>
                         <div class="list-item-colomn w-col w-col-8">
                             <div class="column-text">
-                                {{ $subject }} ({{ $activity->subject_id }}) has been {{ $activity->description }}. <br>
+                                {{ class_basename($activity->subject_type) }} ({{ $activity->subject_id }}) has been {{ $activity->description }}:<br>
                                 @foreach ($activity->changes['attributes'] as $key => $attribute)
                                     <i>{{ $key }}</i>: {{ $attribute }} <br>
                                 @endforeach
                                 @if(isset($activity->changes['old']))
-                                    Old properties:
+                                    <br>
+                                    Old properties: <br>
                                     @foreach ($activity->changes['old'] as $key => $attribute)
-                                        <i>{{ $key }}</i>: {{ $attribute }}
+                                        <i>{{ $key }}</i>: {{ $attribute }} <br>
                                     @endforeach
                                 @endif
-                                {{--{{ str_replace($needles, " ", $activity->properties) }}--}}
                             </div>
                         </div>
                     </div>

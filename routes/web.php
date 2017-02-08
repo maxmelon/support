@@ -70,6 +70,7 @@ Route::delete('/destroy/user/{user}', 'UsersController@destroy')->name('destroy-
 // - Logs
 // - - Show Logs
 Route::get('/dashboard/logs', 'LogsController@show')->name('show-logs');
+Route::get('/dashboard/logs/export', 'LogsController@exportFullLogs')->name('export-full-logs');
 
 
 
