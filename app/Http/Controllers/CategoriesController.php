@@ -73,6 +73,43 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Shows the form for editing the specified resource.
+     *
+     * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Category $category)
+    {
+        if (Session::has('backUrl')) {
+            Session::keep('backUrl');
+        }
+        return view('dashboard.edit-category', compact('category'));
+    }
+
+
+    /**
+     * Update the item in storage
+     *
+     * @param Category $category
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Category $category, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:191',
+        ]);
+
+        $category->update([
+            'name' => $request->name
+        ]);
+
+        return ($url = Session::get('backUrl'))
+            ? redirect($url)->with('status', 'success')->with('alert', 'The category has been successfully updated!')->with('icon', '')
+            : redirect('/dashboard')->with('status', 'success')->with('alert', 'The category has been successfully updated!')->with('icon', '');
+    }
+
+    /**
      * Show the page to confirm the intention to delete.
      *
      * @param Category $category

@@ -38,6 +38,9 @@ Route::get('/dashboard/category/{category}', 'CategoriesController@show')->name(
 // - - Create a new category in dashboard
 Route::get('/dashboard/new-category', 'CategoriesController@create')->name('new-category-form');
 Route::post('/dashboard/new-category', 'CategoriesController@store')->name('create-category');
+// - - Edit a category
+Route::get('/category/{category}/edit', 'CategoriesController@edit')->name('edit-category-form');
+Route::patch('/category/{category}/category', 'CategoriesController@update')->name('update-category');
 // - - Delete Category
 Route::get('/dashboard/{category}/delete', 'CategoriesController@delete')->name('delete-category-form');
 Route::delete('/destroy/category/{category}', 'CategoriesController@destroy')->name('destroy-category');
